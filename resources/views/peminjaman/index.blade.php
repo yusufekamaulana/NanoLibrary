@@ -41,12 +41,12 @@
                 </a>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link">Beranda</a>
+                        <a href="/home" class="nav-item nav-link">Beranda</a>
                         <a href="about.html" class="nav-item nav-link">Profil</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
                             <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item active">Peminjaman Buku</a>
+                                <a href="/peminjaman" class="dropdown-item active">Peminjaman Buku</a>
                                 <a href="team.html" class="dropdown-item">E-Book</a>
                             </div>
                         </div>

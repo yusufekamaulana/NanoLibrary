@@ -40,17 +40,17 @@
     <div class="container-fluid sticky-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="index.html" class="navbar-brand">
+                <a href="/home" class="navbar-brand">
                     <img src="{{ asset('assets1/img/logo.svg') }}" alt="Logo" style="height: 30px;">
                 </a>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Beranda</a>
+                        <a href="/home" class="nav-item nav-link active">Beranda</a>
                         <a href="about.html" class="nav-item nav-link">Profil</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
                             <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Peminjaman Buku</a>
+                                <a href="/peminjaman" class="dropdown-item">Peminjaman Buku</a>
                                 <a href="team.html" class="dropdown-item">E-Book</a>
                             </div>
                         </div>
