@@ -18,6 +18,7 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('assets1/lib/animate/animate.min.css') }}" rel="stylesheet">
@@ -31,64 +32,53 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <!-- Spinner End -->
-
 
     <!-- Navbar Start -->
-    <!-- Navbar Start -->
-    <div class="container-fluid sticky-top">
+    <div class="container-fluid sticky-top bg-primary" style="z-index: 1030;">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="/home" class="navbar-brand">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a href="/" class="navbar-brand">
                     <img src="{{ asset('assets1/img/logo.svg') }}" alt="Logo" style="height: 30px;">
                 </a>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/home" class="nav-item nav-link active">Beranda</a>
-                        <a href="about.html" class="nav-item nav-link">Profil</a>
+                        <a href="/mhs-home" class="nav-item nav-link text-white">Beranda</a>
+                        <a href="/mhs-profil" class="nav-item nav-link text-white">Tentang Kami</a>
+                
+                        <!-- Dropdown Layanan -->
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
+                            <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Layanan</a>
                             <div class="dropdown-menu bg-light mt-2">
-                                <a href="/peminjaman" class="dropdown-item">Peminjaman Buku</a>
-                                <a href="team.html" class="dropdown-item">E-Book</a>
+                                <a href="/mhs-peminjaman" class="dropdown-item">Peminjaman Buku</a>
+                                <a href="/mhs-ebook" class="dropdown-item">E-Book</a>
+                                <a href="https://e-journal.unair.ac.id/JATM" class="dropdown-item">E-Journal</a>
                             </div>
                         </div>
-                        <a href="#" class="nav-item nav-link"><button type="button"
-                                class="btn text-white p-0 d-none d-lg-block"><i class="fa fa-user"></i></button></a>
-                        <a href="#" class="nav-item nav-link"><button type="button"
-                                class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
-                                data-bs-target="#searchModal"><i class="fa fa-search"></i></button></a>
+                
+                        <!-- Dropdown Status -->
+                        <div class="nav-item dropdown ">
+                            <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Status</a>
+                            <div class="dropdown-menu bg-light mt-2">
+                                <a href="/mhs-riwayat_peminjaman" class="dropdown-item">Riwayat Peminjaman</a>
+                                <a href="/mhs-riwayat_pengembalian" class="dropdown-item">Riwayat Pengembalian</a>
+                            </div>
+                        </div>
+                
+                        <a href="/mhs-biodata" class="nav-item nav-link">
+                            <button type="button" class="btn text-white p-0 d-none d-lg-block">
+                                <i class="fa fa-user"></i>
+                            </button>
+                        </a>
+                        <a href="#" class="nav-item nav-link">
+                            <button type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </nav>
         </div>
     </div>
-
-    <!-- Navbar End -->
-
-
-    <!-- Hero Start -->
-    <div class="container-fluid pt-5 bg-primary hero-header mb-5">
-        <div class="container pt-5">
-            <div class="row g-5 pt-5">
-                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Cintai ususmu, minum yakult tiap hari
-                    </h1>
-                    <p class="text-white mb-4 animated slideInRight">Yakult enak tau yakult enak tau yakult enak tau
-                        yakult enak tau
-                        yakult enak tau yakult enak tau yakult enak tau yakult enak tau
-                    </p>
-                    <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Login</a>
-                    <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Register</a>
-                </div>
-                <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <img class="img-fluid" src="{{ asset('assets1/img/book.svg') }}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Hero End -->
 
 
     <!-- Full Screen Search Start -->
@@ -111,46 +101,54 @@
     </div>
     <!-- Full Screen Search End -->
 
+    <!-- Navbar End -->
 
-    <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-4">Ruang Baca FTMM</h1>
-                    <p class="mb-4">Terletak di lantai tuju dengan kondisi miinim stopcontact. Sering ngga kebagian
-                        tempat</p>
-                    <p class="mb-4">Terletak di lantai tuju dengan kondisi miinim stopcontact. Sering ngga kebagian
-                        tempat</p>
-                    <div class="row g-4 pt-3">
-                        <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
-                                <i class="fa fa-users fa-3x text-light"></i>
-                                <div class="ms-3">
-                                    <h2 class="text-light mb-0" data-toggle="counter-up">60</h2>
-                                    <p class="text-light mb-0">Kapasitas</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
-                                <i class="fa fa-check fa-3x text-light"></i>
-                                <div class="ms-3">
-                                    <h2 class="text-light mb-0" data-toggle="counter-up">55</h2>
-                                    <p class="text-light mb-0">Terisi</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="col-lg-4 wow fadeIn text-center" data-wow-delay="0.5s">
+                    <img class="img-fluid rounded-circle mx-auto" src="{{ asset('assets1/img/team-1.jpg') }}" alt="Profile Picture">
                 </div>
-                <div class="col-lg-6 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="{{ asset('assets1/img/kakashi.png') }}" alt="">
+                <div class="col-lg-8 wow fadeIn" data-wow-delay="0.5s">
+                    <table class="table text-left">
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <h1 class="text-3xl font-bold mb-3">Halo Arkan!</h1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Nama Lengkap</td>
+                                <td>Arkan Syafiq At'taqy</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">NIM</td>
+                                <td>164221062</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Email</td>
+                                <td>arkan.syafiq.attaqy-2022@ftmm.unair.ac.id</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Nomor Telepon</td>
+                                <td>085754028591</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Program Studi</td>
+                                <td>Teknologi Sains Data</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Angkatan</td>
+                                <td>2022</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5">
@@ -160,15 +158,6 @@
                     <a href="index.html" class="d-inline-block mb-3">
                         <img src="{{ asset('assets1/img/logo.svg') }}" alt="Logo" style="height: 30px;">
                     </a>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <h5 class="text-white mb-4">Hubungi kami</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>Gedung Nano, Kampus C UNAIR kota Surabaya</p>
-                    <p><i class="fa fa-phone-alt me-3"></i>+62881-0360-00830</p>
-                    <p><i class="fa fa-envelope me-3"></i>info@ftmm.unair.ac.id</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href="http://twitter.com/ftmmunair"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@ftmmunair"><i class="fab fa-youtube"></i></a>
@@ -176,24 +165,32 @@
                         <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/ftmm-universitas-airlangga-8161ab207"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Hubungi kami</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Gedung Nano, Kampus C UNAIR kota Surabaya</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+62881-0360-00830</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@ftmm.unair.ac.id</p>
+                </div>
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Layanan Kami</h5>
-                    <a class="btn btn-link" href="">Ruang Baca</a>
-                    <a class="btn btn-link" href="">Peminjaman Buku</a>
-                    <a class="btn btn-link" href="">E-Book</a>
+                    <a class="btn btn-link" href="/mhs-about">Ruang Baca</a>
+                    <a class="btn btn-link" href="/mhs-peminjaman">Peminjaman Buku</a>
+                    <a class="btn btn-link" href="/mhs-ebook">E-Book</a>
+                    <a class="btn btn-link" href="https://e-journal.unair.ac.id/JATM">E-Journal</a>
                 </div>
-                <div class="col-md-12 wow fadeIn">
-                    <img src="{{ asset('assets1/img/footer@300x.png') }}" alt="img-fluid" width="100%">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <img class="align-center" src="{{ asset('assets1/img/footer@300x.png') }}" alt="img-fluid" width="100%">
                 </div>
             </div>
-            
+
         </div>
         <div class="container wow fadeIn" data-wow-delay="0.1s">
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a href="#">NANO Library
-                        Created By Kelompok 8 Basis Data A1</a>
+                            Created By Kelompok 8 Basis Data A1</a>
                     </div>
                 </div>
             </div>

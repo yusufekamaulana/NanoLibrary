@@ -43,12 +43,12 @@
             margin-bottom: 0.5rem;
         }
         .registration-form .btn-primary {
-            background-color: #741B47;
-            border-color: #741B47;
+            background-color:  #1E90FF;
+            border-color:  #1E90FF;
         }
         .registration-form .btn-primary:hover {
-            background-color: #5e1536;
-            border-color: #5e1536;
+            background-color:  #006ad5;
+            border-color:  #006ad5;
         }
     </style>
 </head>

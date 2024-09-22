@@ -91,13 +91,13 @@
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="Email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email"
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email-20xx@ftmm.unair.ac.id"
                             value="{{ old('Email') }}" required autofocus>
                     </div>
                     <!-- Password -->
                     <div class="mb-4">
                         <label for="Password" class="form-label">Kata Sandi</label>
-                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Kata Sandi"
+                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Minimal 8 Karakter"
                             required>
                     </div>
                     <!-- Remember Me -->
@@ -106,7 +106,7 @@
                         <label class="form-check-label" for="remember">Ingat Saya</label>
                     </div>
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary w-100 py-2">Masuk</button>
+                    <button type="submit" class="btn w-100 py-2" style="background-color: #1E90FF; color: white;">Masuk</button>
                 </form>
                 <p class="mt-3 text-center">
                     Belum punya akun? <a href="/register" class="text-primary">Daftar</a>
