@@ -77,21 +77,37 @@
 
 
     <!-- Hero Start -->
-    <div class="container-fluid pt-5 bg-primary hero-header mb-5">
+    <div class="container-fluid pt-5 bg-primary hero-header mb-0">
         <div class="container pt-5">
-            <div class="row g-5 pt-5">
-                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Cintai ususmu, minum yakult tiap hari
-                    </h1>
-                    <p class="text-white mb-4 animated slideInRight">Yakult enak tau yakult enak tau yakult enak tau
-                        yakult enak tau
-                        yakult enak tau yakult enak tau yakult enak tau yakult enak tau
-                    </p>
-                    <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Login</a>
-                    <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Register</a>
+            <div class="row g-5">
+                <div class="col-lg-6 align-self-center mb-md-5 pb-md-5 wow fadeIn" data-wow-delay="0.3s">
+                    <h1 class="text-light mb-4">We Make Your Business Smarter with Artificial Intelligence</h1>
+                    <p class="text-light mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
+                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
+                        clita duo justo et tempor eirmod magna dolore erat amet</p>
+                    <p class="text-light mb-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no
+                        labore lorem sit. Sanctus clita duo justo et tempor.</p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <h6 class="text-light mb-3"><i class="fa fa-check text-light me-2"></i>Award Winning</h6>
+                            <h6 class="text-light mb-0"><i class="fa fa-check text-light me-2"></i>Professional Staff</h6>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="text-light mb-3"><i class="fa fa-check text-light me-2"></i>24/7 Support</h6>
+                            <h6 class="text-light mb-0"><i class="fa fa-check text-light me-2"></i>Fair Prices</h6>
+                        </div>
+                    </div>
+                    <div class="row g-4 pt-3">
+                        <div class="d-flex align-items-center mt-4">
+                            <a class="btn btn-outline-light btn-square me-3" href="http://twitter.com/ftmmunair"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-square me-3" href="https://www.youtube.com/@ftmmunair"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-square me-3" href="https://www.instagram.com/ftmmunair/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-square me-3" href="https://www.linkedin.com/in/ftmm-universitas-airlangga-8161ab207"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <img class="img-fluid" src="{{ asset('assets1/img/book.svg') }}" alt="">
+                <div class="col-lg-6 align-self-center text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
+                    <img class="img-fluid" src="{{asset('assets1/img/ftmm.png')}}" alt="">
                 </div>
             </div>
         </div>
@@ -119,46 +135,52 @@
     </div>
     <!-- Full Screen Search End -->
 
-
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
+    <!-- Team Start -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-4">Ruang Baca FTMM</h1>
-                    <p class="mb-4">Terletak di lantai tuju dengan kondisi miinim stopcontact. Sering ngga kebagian
-                        tempat</p>
-                    <p class="mb-4">Terletak di lantai tuju dengan kondisi miinim stopcontact. Sering ngga kebagian
-                        tempat</p>
-                    <div class="row g-4 pt-3">
-                        <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
-                                <i class="fa fa-users fa-3x text-light"></i>
-                                <div class="ms-3">
-                                    <h2 class="text-light mb-0" data-toggle="counter-up">60</h2>
-                                    <p class="text-light mb-0">Kapasitas</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
-                                <i class="fa fa-check fa-3x text-light"></i>
-                                <div class="ms-3">
-                                    <h2 class="text-light mb-0" data-toggle="counter-up">55</h2>
-                                    <p class="text-light mb-0">Terisi</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="col-12 text-center wow fadeIn" data-wow-delay="0.1s">
+                    <h1 class="mb-4">Meet Our Experienced Team Members</h1>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet.</p>
                 </div>
-                <div class="col-lg-6 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="{{ asset('assets1/img/kakashi.png') }}" alt="">
+            </div>
+
+            <div class="row g-4 text-center">
+                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="team-item bg-white rounded p-4 pt-0">
+                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-1.jpg')}}" alt="">
+                        <h5 class="mb-0">Jihan Ashifa Hakim</h5>
+                        <small>164221016</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="team-item bg-white rounded p-4 pt-0">
+                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-2.jpg')}}" alt="">
+                        <h5 class="mb-0">Yusuf Eka Maulana</h5>
+                        <small>164221020</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="team-item bg-white rounded p-4 pt-0">
+                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-3.jpg')}}" alt="">
+                        <h5 class="mb-0">Amalika Ari Anindya</h5>
+                        <small>164221029</small>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="team-item bg-white rounded p-4 pt-0">
+                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-4.jpg')}}" alt="">
+                        <h5 class="mb-0">Arkan Syafiq Attaqy</h5>
+                        <small>164221062</small>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Team End -->
+
+
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5">

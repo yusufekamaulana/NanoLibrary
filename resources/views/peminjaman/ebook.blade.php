@@ -33,28 +33,37 @@
 <body>
     <!-- Navbar Start -->
     <!-- Navbar Start -->
-    <div class="container-fluid sticky-top">
+    <div class="container-fluid sticky-top bg-primary" style="z-index: 1030;">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
                 <a href="index.html" class="navbar-brand">
                     <img src="{{ asset('assets1/img/logo.svg') }}" alt="Logo" style="height: 30px;">
                 </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link">Beranda</a>
-                        <a href="about.html" class="nav-item nav-link">Profil</a>
+                        <a href="/" class="nav-item nav-link text-white">Beranda</a>
+                        <a href="/profile" class="nav-item nav-link text-white">Profil</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
+                            <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Layanan</a>
                             <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item active">Peminjaman Buku</a>
-                                <a href="team.html" class="dropdown-item">E-Book</a>
+                                <a href="/peminjaman" class="dropdown-item">Peminjaman Buku</a>
+                                <a href="/e-book" class="dropdown-item">E-Book</a>
                             </div>
                         </div>
-                        <a href="#" class="nav-item nav-link"><button type="button"
-                                class="btn text-white p-0 d-none d-lg-block"><i class="fa fa-user"></i></button></a>
-                        <a href="#" class="nav-item nav-link"><button type="button"
-                                class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal"
-                                data-bs-target="#searchModal"><i class="fa fa-search"></i></button></a>
+                        <a href="#" class="nav-item nav-link">
+                            <button type="button" class="btn text-white p-0 d-none d-lg-block">
+                                <i class="fa fa-user"></i>
+                            </button>
+                        </a>
+                        <a href="#" class="nav-item nav-link">
+                            <button type="button" class="btn text-white p-0 d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -353,15 +362,6 @@
                     <a href="index.html" class="d-inline-block mb-3">
                         <img src="{{ asset('assets1/img/logo.svg') }}" alt="Logo" style="height: 30px;">
                     </a>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor</p>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <h5 class="text-white mb-4">Hubungi kami</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>Gedung Nano, Kampus C UNAIR kota Surabaya</p>
-                    <p><i class="fa fa-phone-alt me-3"></i>+62881-0360-00830</p>
-                    <p><i class="fa fa-envelope me-3"></i>info@ftmm.unair.ac.id</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href="http://twitter.com/ftmmunair"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@ftmmunair"><i class="fab fa-youtube"></i></a>
@@ -369,14 +369,21 @@
                         <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/ftmm-universitas-airlangga-8161ab207"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Hubungi kami</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Gedung Nano, Kampus C UNAIR kota Surabaya</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+62881-0360-00830</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@ftmm.unair.ac.id</p>
+                </div>
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
                     <h5 class="text-white mb-4">Layanan Kami</h5>
                     <a class="btn btn-link" href="">Ruang Baca</a>
                     <a class="btn btn-link" href="">Peminjaman Buku</a>
                     <a class="btn btn-link" href="">E-Book</a>
                 </div>
-                <div class="col-md-12 wow fadeIn">
-                    <img src="{{ asset('assets1/img/footer@300x.png') }}" alt="img-fluid" width="100%">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <img class="align-center" src="{{ asset('assets1/img/footer@300x.png') }}" alt="img-fluid" width="100%">
                 </div>
             </div>
 

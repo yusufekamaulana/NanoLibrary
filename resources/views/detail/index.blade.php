@@ -18,6 +18,7 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('assets1/lib/animate/animate.min.css') }}" rel="stylesheet">
@@ -31,10 +32,7 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <!-- Spinner End -->
-
-
+    <!-- Navbar Start -->
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top bg-primary" style="z-index: 1030;">
         <div class="container">
@@ -73,31 +71,6 @@
         </div>
     </div>
 
-    <!-- Navbar End -->
-
-
-    <!-- Hero Start -->
-    <div class="container-fluid pt-5 bg-primary hero-header mb-5">
-        <div class="container pt-5">
-            <div class="row g-5 pt-5">
-                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Cintai ususmu, minum yakult tiap hari
-                    </h1>
-                    <p class="text-white mb-4 animated slideInRight">Yakult enak tau yakult enak tau yakult enak tau
-                        yakult enak tau
-                        yakult enak tau yakult enak tau yakult enak tau yakult enak tau
-                    </p>
-                    <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Login</a>
-                    <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Register</a>
-                </div>
-                <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <img class="img-fluid" src="{{ asset('assets1/img/book.svg') }}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Hero End -->
-
 
     <!-- Full Screen Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1">
@@ -119,46 +92,79 @@
     </div>
     <!-- Full Screen Search End -->
 
+    <!-- Navbar End -->
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-4">Ruang Baca FTMM</h1>
-                    <p class="mb-4">Terletak di lantai tuju dengan kondisi miinim stopcontact. Sering ngga kebagian
-                        tempat</p>
-                    <p class="mb-4">Terletak di lantai tuju dengan kondisi miinim stopcontact. Sering ngga kebagian
-                        tempat</p>
-                    <div class="row g-4 pt-3">
-                        <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
-                                <i class="fa fa-users fa-3x text-light"></i>
-                                <div class="ms-3">
-                                    <h2 class="text-light mb-0" data-toggle="counter-up">60</h2>
-                                    <p class="text-light mb-0">Kapasitas</p>
-                                </div>
-                            </div>
+    <div class="container-xxl py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-12">
+                    <h1 class="mb-2">Juijutsu Kaisen Vol. 5</h1>
+                    <h4 class="text-secondary mb-3">Gege Akutami</h4>
+                </div>
+            </div>
+            <div class="row g-5">
+                <!-- Bagian Gambar -->
+                <div class="col-lg-5">
+                    <img class="img-fluid align-items-center" src="{{asset('assets1/img/buku1.jpg')}}" alt="Book Image" width="100%">
+                </div>
+                <!-- Bagian Detail Buku -->
+                <div class="col-lg-7">
+                    <h4 class="mb-3">Deskripsi Buku</h4>
+                    <p class="mb-4">Juijutsu Kaisen Vol. 5 melanjutkan petualangan Yuji Itadori bersama teman-temannya dalam menghadapi kutukan yang mengancam dunia. Volume ini dipenuhi dengan aksi intens dan perkembangan karakter yang menarik, membuatnya menjadi salah satu seri manga yang paling digemari saat ini.</p>
+
+                    <h4 class="mb-3">Detail Buku</h4>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>Jumlah Halaman</strong><br>368 halaman</li>
+                                <li><strong>Penerbit</strong><br>Gramedia Widiasarana Indonesia</li>
+                                <li><strong>Tanggal Terbit</strong><br>23 Mar 2020</li>
+                                <li><strong>Berat</strong><br>0.25 kg</li>
+                            </ul>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
-                                <i class="fa fa-check fa-3x text-light"></i>
-                                <div class="ms-3">
-                                    <h2 class="text-light mb-0" data-toggle="counter-up">55</h2>
-                                    <p class="text-light mb-0">Terisi</p>
-                                </div>
-                            </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><strong>ISBN</strong><br>9786020523316</li>
+                                <li><strong>Lebar</strong><br>13.5 cm</li>
+                                <li><strong>Panjang</strong><br>20.0 cm</li>
+                                <li><strong>Bahasa</strong><br>Indonesia</li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="d-flex gap-3 mt-3">
+                        <a class="btn btn-danger rounded-pill px-4" href="">Tambahkan Daftar Bacaan</a>
+                        <a class="btn btn-primary rounded-pill px-4" href="">Reservasi Peminjaman</a>
+                    </div>
 
-                </div>
-                <div class="col-lg-6 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="{{ asset('assets1/img/kakashi.png') }}" alt="">
+                    <!-- Tabel Status Buku -->
+                    <h4 class="mt-4">Status Buku</h4>
+                    <table class="min-w-full mt-3 bg-white border border-gray-300">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-300 text-left">Status</th>
+                                <th class="py-2 px-4 border-b border-gray-300 text-left">Jumlah Stok</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-300">Tersedia</td>
+                                <td class="py-2 px-4 border-b border-gray-300">10</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-300">Reservasi</td>
+                                <td class="py-2 px-4 border-b border-gray-300">1</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-300">Dipinjam</td>
+                                <td class="py-2 px-4 border-b border-gray-300">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Detail End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5">
