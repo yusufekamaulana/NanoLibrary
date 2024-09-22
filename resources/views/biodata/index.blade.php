@@ -18,6 +18,7 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('assets1/lib/animate/animate.min.css') }}" rel="stylesheet">
@@ -31,10 +32,7 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <!-- Spinner End -->
-
-
+    <!-- Navbar Start -->
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top bg-primary" style="z-index: 1030;">
         <div class="container">
@@ -73,47 +71,6 @@
         </div>
     </div>
 
-    <!-- Navbar End -->
-
-
-    <!-- Hero Start -->
-    <div class="container-fluid pt-5 bg-primary hero-header mb-0">
-        <div class="container pt-5">
-            <div class="row g-5">
-                <div class="col-lg-6 align-self-center mb-md-5 pb-md-5 wow fadeIn" data-wow-delay="0.3s">
-                    <h1 class="text-light mb-4">We Make Your Business Smarter with Artificial Intelligence</h1>
-                    <p class="text-light mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <p class="text-light mb-4">Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no
-                        labore lorem sit. Sanctus clita duo justo et tempor.</p>
-                    <div class="row g-3">
-                        <div class="col-sm-6">
-                            <h6 class="text-light mb-3"><i class="fa fa-check text-light me-2"></i>Award Winning</h6>
-                            <h6 class="text-light mb-0"><i class="fa fa-check text-light me-2"></i>Professional Staff</h6>
-                        </div>
-                        <div class="col-sm-6">
-                            <h6 class="text-light mb-3"><i class="fa fa-check text-light me-2"></i>24/7 Support</h6>
-                            <h6 class="text-light mb-0"><i class="fa fa-check text-light me-2"></i>Fair Prices</h6>
-                        </div>
-                    </div>
-                    <div class="row g-4 pt-3">
-                        <div class="d-flex align-items-center mt-4">
-                            <a class="btn btn-outline-light btn-square me-3" href="http://twitter.com/ftmmunair"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-square me-3" href="https://www.youtube.com/@ftmmunair"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-square me-3" href="https://www.instagram.com/ftmmunair/"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-square me-3" href="https://www.linkedin.com/in/ftmm-universitas-airlangga-8161ab207"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 align-self-center text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="{{asset('assets1/img/ftmm.png')}}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Hero End -->
-
 
     <!-- Full Screen Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1">
@@ -135,51 +92,41 @@
     </div>
     <!-- Full Screen Search End -->
 
-    <!-- Team Start -->
-    <div class="container-fluid bg-light py-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-12 text-center wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="mb-4">Meet Our Experienced Team Members</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et tempor eirmod magna dolore erat amet.</p>
-                </div>
-            </div>
+    <!-- Navbar End -->
 
-            <div class="row g-4 text-center">
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="team-item bg-white rounded p-4 pt-0">
-                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-1.jpg')}}" alt="">
-                        <h5 class="mb-0">Jihan Ashifa Hakim</h5>
-                        <small>164221016</small>
-                    </div>
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-4 wow fadeIn text-center" data-wow-delay="0.5s">
+                    <img class="img-fluid rounded-circle mx-auto" src="{{ asset('assets1/img/team-1.jpg') }}" alt="Profile Picture">
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="team-item bg-white rounded p-4 pt-0">
-                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-2.jpg')}}" alt="">
-                        <h5 class="mb-0">Yusuf Eka Maulana</h5>
-                        <small>164221020</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="team-item bg-white rounded p-4 pt-0">
-                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-3.jpg')}}" alt="">
-                        <h5 class="mb-0">Amalika Ari Anindya</h5>
-                        <small>164221029</small>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="team-item bg-white rounded p-4 pt-0">
-                        <img class="img-fluid rounded-circle p-4" src="{{asset('assets1/img/team-4.jpg')}}" alt="">
-                        <h5 class="mb-0">Arkan Syafiq Attaqy</h5>
-                        <small>164221062</small>
-                    </div>
+                <div class="col-lg-8 wow fadeIn" data-wow-delay="0.5s">
+                    <table class="table text-left">
+                        <tbody>
+                            <tr>
+                                <td colspan="2" class="text-center">
+                                    <h1 class="text-3xl font-bold mb-3">Hallo, Agus !!!</h1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Nama Lengkap</td>
+                                <td>Agus Santoso</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">NIM</td>
+                                <td>123456789</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold">Program Studi</td>
+                                <td>Teknologi Sains Data</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Team End -->
-
-
+    <!-- About End -->
 
 
     <!-- Footer Start -->

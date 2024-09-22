@@ -55,7 +55,7 @@
                                 <a href="/e-book" class="dropdown-item">E-Book</a>
                             </div>
                         </div>
-                        <a href="#" class="nav-item nav-link">
+                        <a href="/user" class="nav-item nav-link">
                             <button type="button" class="btn text-white p-0 d-none d-lg-block">
                                 <i class="fa fa-user"></i>
                             </button>
@@ -93,7 +93,6 @@
     <!-- Full Screen Search End -->
 
     <!-- Navbar End -->
-
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="row g-5">
@@ -103,11 +102,9 @@
                 </div>
             </div>
             <div class="row g-5">
-                <!-- Bagian Gambar -->
                 <div class="col-lg-5">
                     <img class="img-fluid align-items-center" src="{{asset('assets1/img/buku1.jpg')}}" alt="Book Image" width="100%">
                 </div>
-                <!-- Bagian Detail Buku -->
                 <div class="col-lg-7">
                     <h4 class="mb-3">Deskripsi Buku</h4>
                     <p class="mb-4">Juijutsu Kaisen Vol. 5 melanjutkan petualangan Yuji Itadori bersama teman-temannya dalam menghadapi kutukan yang mengancam dunia. Volume ini dipenuhi dengan aksi intens dan perkembangan karakter yang menarik, membuatnya menjadi salah satu seri manga yang paling digemari saat ini.</p>
@@ -132,39 +129,71 @@
                         </div>
                     </div>
                     <div class="d-flex gap-3 mt-3">
-                        <a class="btn btn-danger rounded-pill px-4" href="">Tambahkan Daftar Bacaan</a>
-                        <a class="btn btn-primary rounded-pill px-4" href="">Reservasi Peminjaman</a>
+                        <button class="btn btn-danger rounded px-4" onclick="toggleModal('loginModal')">Tambahkan Daftar Bacaan</button>
+                        <button class="btn btn-primary rounded px-4" onclick="toggleModal('loginModal')">Pinjam Buku</button>
                     </div>
 
-                    <!-- Tabel Status Buku -->
                     <h4 class="mt-4">Status Buku</h4>
-                    <table class="min-w-full mt-3 bg-white border border-gray-300">
-                        <thead class="bg-gray-200">
-                            <tr>
-                                <th class="py-2 px-4 border-b border-gray-300 text-left">Status</th>
-                                <th class="py-2 px-4 border-b border-gray-300 text-left">Jumlah Stok</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="py-2 px-4 border-b border-gray-300">Tersedia</td>
-                                <td class="py-2 px-4 border-b border-gray-300">10</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 border-b border-gray-300">Reservasi</td>
-                                <td class="py-2 px-4 border-b border-gray-300">1</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 border-b border-gray-300">Dipinjam</td>
-                                <td class="py-2 px-4 border-b border-gray-300">2</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="overflow-x-auto mt-3">
+                        <table class="min-w-full bg-white rounded-lg shadow-md">
+                            <thead class="bg-gray-200 rounded-t-lg">
+                                <tr>
+                                    <th class="py-3 px-5 text-left">Status</th>
+                                    <th class="py-3 px-5 text-left">Jumlah Stok</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="py-3 px-5">Tersedia</td>
+                                    <td class="py-3 px-5">10</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3 px-5">Reservasi</td>
+                                    <td class="py-3 px-5">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-5">Dipinjam</td>
+                                    <td class="py-3 px-5">2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="loginModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+                    <h2 class="text-xl font-bold mb-6">Login</h2>
+                    <form>
+                        <div class="mb-5">
+                            <label for="username" class="block text-sm font-medium">Username</label>
+                            <input type="text" id="username" class="mt-1 p-3 border border-gray-300 rounded w-full" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="password" class="block text-sm font-medium">Password</label>
+                            <input type="password" id="password" class="mt-1 p-3 border border-gray-300 rounded w-full" required>
+                        </div>
+                        <div class="flex justify-end">
+                            <button type="button" class="btn btn-danger rounded px-4 mr-2" onclick="toggleModal('loginModal')">Batal</button>
+                            <button type="submit" class="btn btn-primary rounded px-4">Login</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <!-- Detail End -->
+
+    <script>
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+    </script>
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5">

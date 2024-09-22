@@ -54,7 +54,7 @@
                                 <a href="/e-book" class="dropdown-item">E-Book</a>
                             </div>
                         </div>
-                        <a href="#" class="nav-item nav-link">
+                        <a href="/user" class="nav-item nav-link">
                             <button type="button" class="btn text-white p-0 d-none d-lg-block">
                                 <i class="fa fa-user"></i>
                             </button>

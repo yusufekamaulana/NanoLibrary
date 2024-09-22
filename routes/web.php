@@ -21,3 +21,7 @@ Route::get('/profile', function () {
 Route::get('/detail-buku', function () {
     return view('detail.index');
 });
+
+Route::get('/user', function () {
+    return view('biodata.index');
+});
