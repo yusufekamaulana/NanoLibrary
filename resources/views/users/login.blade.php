@@ -120,7 +120,7 @@
     <div class="container-fluid bg-dark text-white-50 footer pt-5">
         <!-- Include your footer content here -->
         <div class="container text-center">
-            <p class="mb-0">&copy; 2023 ALL RIGHTS RESERVED</p>
+            <p class="mb-0">&copy; 2024 ALL RIGHTS RESERVED</p>
         </div>
     </div>
     <!-- Footer End -->

@@ -8,8 +8,36 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin', function () {
+Route::get('/adm-home', function () {
     return view('admin.index');
+});
+
+Route::get('/adm-biodata', function () {
+    return view('admin.biodata');
+});
+
+Route::get('/adm-buku', function () {
+    return view('admin.data_buku');
+});
+
+Route::get('/adm-kunjungan', function () {
+    return view('admin.data_kunjungan');
+});
+
+Route::get('/adm-mahasiswa', function () {
+    return view('admin.data_mahasiswa');
+});
+
+Route::get('/adm-peminjaman', function () {
+    return view('admin.layanan_peminjaman');
+});
+
+Route::get('/adm-pengembalian', function () {
+    return view('admin.layanan_pengembalian');
+});
+
+Route::get('/adm-denda', function () {
+    return view('admin.layanan_denda');
 });
 
 Route::get('/mhs-home', function () {

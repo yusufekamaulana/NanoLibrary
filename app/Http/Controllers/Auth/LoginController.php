@@ -38,9 +38,9 @@ class LoginController extends Controller
 
             // Redirect based on role
             if ($role == 'admin') {
-                return redirect()->intended('/admin');
+                return redirect()->intended('/adm-home');
             } elseif ($role == 'mahasiswa') {
-                return redirect()->intended('/home');
+                return redirect()->intended('/mhs-home');
             } else {
                 // If role is not recognized, log out and redirect to login with error
                 Auth::logout();

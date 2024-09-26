@@ -11,6 +11,7 @@ class CreateBukuTable extends Migration
         Schema::create('buku', function (Blueprint $table) {
             $table->increments('ID_Buku');
             $table->string('Judul', 255);
+            $table->string('Sampul', 255);
             $table->string('Author', 100)->nullable();
             $table->integer('Tahun')->nullable();
             $table->unsignedInteger('Tipe_Buku_ID_Tipe_Buku')->nullable();
