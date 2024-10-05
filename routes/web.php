@@ -1,13 +1,44 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ManageBookController;
 use App\Http\Controllers\ManageMahasiswaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MahasiswaController;
+
+Route::get('login', [UserController::class, 'showLoginForm'])->name('login');
+Route::post('login', [UserController::class, 'login']);
+Route::get('register', [UserController::class, 'showRegisterForm'])->name('register');
+Route::post('register', [UserController::class, 'register']);
+Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
-    return view('index');
+        return view('mhs.index');
+    })->name('home');
+
+Route::prefix('mhs')->group(function () {
+
+    Route::get('aboutus', function () {
+        return view('mhs.aboutus');
+    })->name('mhs.aboutus');
+
+    Route::get('/biodata', [MahasiswaController::class, 'showProfile'])->middleware('auth');
+
+    Route::get('detailbuku', function () {
+        return view('mhs.detailbuku');
+    })->name('mhs.detailbuku');
+
+    Route::get('layananbuku', function () {
+        return view('mhs.layananbuku');
+    })->name('mhs.layananbuku');
+
+    Route::get('riwayatpeminjaman', function () {
+        return view('mhs.riwayatpeminjaman');
+    })->name('mhs.riwayatpeminjaman')->middleware('auth'); // Middleware untuk memastikan pengguna login
+
+    Route::get('riwayatpengembalian', function () {
+        return view('mhs.riwayatpengembalian');
+    })->name('mhs.riwayatpengembalian')->middleware('auth'); // Middleware untuk memastikan pengguna login
 });
 
 Route::get('/adm-home', function () {
@@ -40,61 +71,6 @@ Route::get('/adm-pengembalian', function () {
 
 Route::get('/adm-denda', function () {
     return view('admin.layanan_denda');
-});
-
-Route::get('/mhs-home', function () {
-    return view('mahasiswa.home');
-});
-
-Route::get('/mhs-profil', function () {
-    return view('mahasiswa.about');
-});
-
-Route::get('/mhs-peminjaman', function () {
-    return view('mahasiswa.peminjaman');
-});
-
-Route::get('/mhs-detail', function () {
-    return view('mahasiswa.detail');
-});
-
-Route::get('/mhs-ebook', function () {
-    return view('mahasiswa.ebook');
-});
-
-Route::get('/mhs-detail_ebook', function () {
-    return view('mahasiswa.detail_ebook');
-});
-
-Route::get('/mhs-riwayat_peminjaman', function () {
-    return view('mahasiswa.riwayat_peminjaman');
-});
-
-Route::get('/mhs-riwayat_pengembalian', function () {
-    return view('mahasiswa.riwayat_pengembalian');
-});
-
-Route::get('/mhs-biodata', function () {
-    return view('mahasiswa.biodata');
-});
-
-Route::get('/register', function () {
-    return view('users.register');
-});
-
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
-
-Route::get('/login', function () {
-    return view('users.login');
-});
-
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/logout', function () {
-    return view('users.login');
 });
 
 Route::resource('adm-buku', ManageBookController::class);

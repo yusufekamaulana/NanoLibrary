@@ -47,7 +47,7 @@
                     <div class="navbar-nav ms-auto">
                         <a href="/" class="nav-item nav-link text-white">Beranda</a>
                         <a href="/mhs-profil" class="nav-item nav-link text-white">Tentang Kami</a>
-                
+
                         <!-- Dropdown Layanan -->
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Layanan</a>
@@ -57,7 +57,7 @@
                                 <a href="https://e-journal.unair.ac.id/JATM" class="dropdown-item">E-Journal</a>
                             </div>
                         </div>
-                
+
                         <!-- Dropdown Status -->
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown">Status</a>
@@ -66,8 +66,8 @@
                                 <a href="/mhs-riwayat_pengembalian" class="dropdown-item">Riwayat Pengembalian</a>
                             </div>
                         </div>
-                
-                        <a href="/logi " class="nav-item nav-link">
+
+                        <a href="/login " class="nav-item nav-link">
                             <button type="button" class="btn text-white p-0 d-none d-lg-block">
                                 <i class="fa fa-user"></i>
                             </button>
@@ -105,27 +105,54 @@
     <!-- Full Screen Search End -->
 
     <!-- Navbar End -->
-
-
     <!-- Hero Start -->
-    <div class="container-fluid pt-5 bg-primary hero-header mb-5">
-        <div class="container pt-5">
-            <div class="row g-5 pt-5">
-                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight" style="text-align: justify;">Selamat Datang di Nanolib, Perpustakaan Gedung Nano FTMM! 
-                    </h1>
-                    <p class="text-white mb-4 animated slideInRight" style="text-align: justify;">Di sini, kamu bisa menemukan berbagai referensi yang mendukung studimu di Fakultas Teknologi Maju dan Multidisiplin. Akses buku fisik, e-book, jurnal, hingga skripsi, semua dalam satu platform yang mudah diakses.
-                    </p>
-                    <a href="/login" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInRight">Login</a>
-                    <a href="/register" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill ms-3 animated slideInRight">Register</a>
+    <div class="container-fluid mb-5 p-0">
+        <div class="carousel relative" x-data="{ currentSlide: 0 }" x-init="setInterval(() => { currentSlide = (currentSlide === 3) ? 0 : currentSlide + 1 }, 3000)">
+            <div class="carousel-images">
+                <!-- Slide 1 -->
+                <div x-show="currentSlide === 0" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('{{ asset('assets1/img/header1.png') }}');">
+                    <div class="absolute inset-0 bg-opacity-50 bg-black"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                        <h1 class="text-6xl font-bold text-white mb-4">Selamat Datang di Nanolib, Perpustakaan Gedung Nano FTMM!</h1>
+                        <p class="text-white mb-4">Di sini, kamu bisa menemukan berbagai referensi yang mendukung studimu di Fakultas Teknologi Maju dan Multidisiplin. Akses buku fisik, e-book, jurnal, hingga skripsi, semua dalam satu platform yang mudah diakses.</p>
+                    </div>
                 </div>
-                <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <img class="img-fluid" src="{{ asset('assets1/img/book.svg') }}" alt="">
+                <!-- Slide 2 -->
+                <div x-show="currentSlide === 1" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('{{ asset('assets1/img/header2.png') }}');">
+                    <div class="absolute inset-0 bg-opacity-50 bg-black"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                        <h1 class="text-6xl font-bold text-white mb-4">Selamat Datang di Nanolib, Perpustakaan Gedung Nano FTMM!</h1>
+                        <p class="text-white mb-4">Di sini, kamu bisa menemukan berbagai referensi yang mendukung studimu di Fakultas Teknologi Maju dan Multidisiplin. Akses buku fisik, e-book, jurnal, hingga skripsi, semua dalam satu platform yang mudah diakses.</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div x-show="currentSlide === 2" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('{{ asset('assets1/img/header3.png') }}');">
+                    <div class="absolute inset-0 bg-opacity-50 bg-black"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                        <h1 class="text-6xl font-bold text-white mb-4">Selamat Datang di Nanolib, Perpustakaan Gedung Nano FTMM!</h1>
+                        <p class="text-white mb-4">Di sini, kamu bisa menemukan berbagai referensi yang mendukung studimu di Fakultas Teknologi Maju dan Multidisiplin. Akses buku fisik, e-book, jurnal, hingga skripsi, semua dalam satu platform yang mudah diakses.</p>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div x-show="currentSlide === 3" class="relative w-full h-screen bg-cover bg-center" style="background-image: url('{{ asset('assets1/img/header4.png') }}');">
+                    <div class="absolute inset-0 bg-opacity-50 bg-black"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                        <h1 class="text-6xl font-bold text-white mb-4">Selamat Datang di Nanolib, Perpustakaan Gedung Nano FTMM!</h1>
+                        <p class="text-white mb-4">Di sini, kamu bisa menemukan berbagai referensi yang mendukung studimu di Fakultas Teknologi Maju dan Multidisiplin. Akses buku fisik, e-book, jurnal, hingga skripsi, semua dalam satu platform yang mudah diakses.</p>
+                    </div>
                 </div>
             </div>
+            <!-- Carousel controls -->
+            <button @click="currentSlide = (currentSlide === 0) ? 2 : currentSlide - 1" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full">
+                &#10094;
+            </button>
+            <button @click="currentSlide = (currentSlide === 2) ? 0 : currentSlide + 1" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full">
+                &#10095;
+            </button>
         </div>
     </div>
     <!-- Hero End -->
+
 
 
     <!-- Full Screen Search Start -->
@@ -150,15 +177,39 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid mt-5 pt-5">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="mb-4" style="text-align: justify;">Buat pengalaman belajarmu lebih nyaman dengan check-in pakai QR code</h1>
-                    <p class="mb-4" style="text-align: justify;">Cek ketersediaan tempat secara real-time, jadi kamu bisa memastikan ruang baca yang pas sebelum datang</p>
+                <div class="col-lg-5 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
+                    <div class="carousel relative" x-data="{ currentSlide: 0 }" x-init="setInterval(() => { currentSlide = (currentSlide === 2) ? 0 : currentSlide + 1 }, 5000)">
+                        <div class="carousel-images">
+                            <!-- Slide 1 -->
+                            <div x-show="currentSlide === 0" class="relative w-96 h-96 bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('{{ asset('assets1/img/hero1.png') }}');">
+                                <div class="absolute inset-0 bg-opacity-50 bg-black"></div>
+                                <div class="absolute bottom-0 left-0 p-6">
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div x-show="currentSlide === 1" class="relative w-96 h-96 bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('{{ asset('assets1/img/hero2.png') }}');">
+                                <div class="absolute inset-0 bg-opacity-50 bg-black"></div>
+                                <div class="absolute bottom-0 left-0 p-6">
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div x-show="currentSlide === 2" class="relative w-96 h-96 bg-cover bg-center rounded-lg overflow-hidden" style="background-image: url('{{ asset('assets1/img/hero3.png') }}');">
+                                <div class="absolute inset-0 bg-opacity-50 bg-black"></div>
+                                <div class="absolute bottom-0 left-0 p-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="mb-4" style="text-align: left;">Buat pengalaman belajarmu lebih nyaman dengan check-in pakai QR code</h1>
+                    <p class="mb-4" style="text-align: left;">Cek ketersediaan tempat secara real-time, jadi kamu bisa memastikan ruang baca yang pas sebelum datang</p>
                     <div class="row g-4 pt-3">
                         <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
+                            <div class="d-flex rounded p-3 bg-dark">
                                 <i class="fa fa-users fa-3x text-light"></i>
                                 <div class="ms-3">
                                     <h2 class="text-light mb-0" data-toggle="counter-up">60</h2>
@@ -167,7 +218,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex rounded p-3" style="background: #1363c6;">
+                            <div class="d-flex rounded p-3 bg-dark">
                                 <i class="fa fa-check fa-3x text-light"></i>
                                 <div class="ms-3">
                                     <h2 class="text-light mb-0" data-toggle="counter-up">55</h2>
@@ -176,18 +227,15 @@
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-lg-6 align-self-end text-center text-md-end wow fadeIn" data-wow-delay="0.5s">
-                    <img class="img-fluid" src="{{ asset('assets1/img/kakashi.png') }}" alt="">
                 </div>
             </div>
+            <div class="row mb-5"><br></div>
         </div>
     </div>
     <!-- About End -->
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
@@ -239,17 +287,17 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
 
 
-     <!-- JavaScript Libraries -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="{{asset('assets1/lib/wow/wow.min.js')}}"></script>
-     <script src="{{asset('assets1/lib/easing/easing.min.js')}}"></script>
-     <script src="{{asset('assets1/lib/waypoints/waypoints.min.js')}}"></script>
-     <script src="{{asset('assets1/lib/counterup/counterup.min.js')}}"></script>
-     <script src="{{asset('assets1/lib/owlcarousel/owl.carousel.min.js')}}"></script>
- 
-     <!-- Template Javascript -->
-     <script src="{{asset('assets1/js/main.js')}}"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('assets1/lib/wow/wow.min.js')}}"></script>
+    <script src="{{asset('assets1/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('assets1/lib/waypoints/waypoints.min.js')}}"></script>
+    <script src="{{asset('assets1/lib/counterup/counterup.min.js')}}"></script>
+    <script src="{{asset('assets1/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Template Javascript -->
+    <script src="{{asset('assets1/js/main.js')}}"></script>
 </body>
 
 </html>

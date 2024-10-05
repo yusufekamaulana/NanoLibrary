@@ -57,76 +57,107 @@
 </head>
 
 <body>
-    <!-- Navbar Start -->
-    <div class="container-fluid sticky-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a href="/" class="navbar-brand">
-                    <img src="{{ asset('assets1/img/logo.svg') }}" alt="Logo" style="height: 30px;">
-                </a>
-                <!-- Add your navbar content here -->
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar End -->
-
     <!-- Login Form Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="login-form">
-                <h2 class="text-center mb-5">Masuk Akun</h2>
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <!-- Display Validation Errors -->
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
+    <div class="container-fluid pt-2">
+        <div class="container pt-3">
+            <div class="row g-5 pt-5">
+                <div class="col-lg-6 align-self-center text-center text-md-end fadeIn" data-wow-delay="0.5s">
+                    <img class="img-fluid animated slideInRight" src="{{asset('assets1/img/ftmm.png')}}" alt="">
+                </div>
+                <div class="col-lg-6 align-self-center text-left">
+                    <div class="login-form">
+                        <h2 class="text-center mb-5">Login</h2>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <!-- Display Validation Errors -->
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
 
-                    <!-- Email -->
-                    <div class="mb-3">
-                        <label for="Email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email-20xx@ftmm.unair.ac.id"
-                            value="{{ old('Email') }}" required autofocus>
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="Email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="Email-20xx@ftmm.unair.ac.id"
+                                    value="{{ old('Email') }}" required autofocus>
+                            </div>
+                            <!-- Password -->
+                            <div class="mb-4">
+                                <label for="Password" class="form-label">Kata Sandi</label>
+                                <input type="password" class="form-control" id="Password" name="Password" placeholder="Minimal 8 Karakter"
+                                    required>
+                            </div>
+                            <!-- Remember Me -->
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">Ingat Saya</label>
+                            </div>
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn w-100 py-2" style="background-color: #1E90FF; color: white;">Masuk</button>
+                        </form>
+                        <p class="mt-3 text-center">
+                            Belum punya akun? <a href="/register" class="text-primary">Daftar</a>
+                        </p>
                     </div>
-                    <!-- Password -->
-                    <div class="mb-4">
-                        <label for="Password" class="form-label">Kata Sandi</label>
-                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Minimal 8 Karakter"
-                            required>
-                    </div>
-                    <!-- Remember Me -->
-                    <div class="mb-4 form-check">
-                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                        <label class="form-check-label" for="remember">Ingat Saya</label>
-                    </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn w-100 py-2" style="background-color: #1E90FF; color: white;">Masuk</button>
-                </form>
-                <p class="mt-3 text-center">
-                    Belum punya akun? <a href="/register" class="text-primary">Daftar</a>
-                </p>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Login Form End -->
 
+    <!-- Login Form End -->
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white-50 footer pt-5">
-        <!-- Include your footer content here -->
-        <div class="container text-center">
-            <p class="mb-0">&copy; 2024 ALL RIGHTS RESERVED</p>
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <img src="{{ asset('assets1/img/logo.svg') }}" alt="Logo" style="height: 30px;">
+                    </a>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="http://twitter.com/ftmmunair"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@ftmmunair"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/ftmmunair/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/ftmm-universitas-airlangga-8161ab207"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Hubungi kami</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Gedung Nano, Kampus C UNAIR kota Surabaya</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+62881-0360-00830</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@ftmm.unair.ac.id</p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Layanan Kami</h5>
+                    <a class="btn btn-link" href="/mhs-profil">Ruang Baca</a>
+                    <a class="btn btn-link" href="/mhs-peminjaman">Peminjaman Buku</a>
+                    <a class="btn btn-link" href="/mhs-ebook">E-Book</a>
+                    <a class="btn btn-link" href="https://e-journal.unair.ac.id/JATM">E-Journal</a>
+                </div>
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <img class="align-center" src="{{ asset('assets1/img/footer@300x.png') }}" alt="img-fluid" width="100%">
+                </div>
+            </div>
+
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">NANO Library
+                            Created By Kelompok 8 Basis Data A1</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Footer End -->
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
