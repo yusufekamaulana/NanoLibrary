@@ -9,8 +9,8 @@ class ManageBookController extends Controller
 {
     public function index()
     {
-        $books = Book::all(); // Retrieve all books
-        return view('admin.data_buku', compact('books'));
+        $books = Book::paginate(10); // Paginate results, 10 books per page
+        return view('adm.data_buku', compact('books'));
     }
 
     public function create()
@@ -22,15 +22,15 @@ class ManageBookController extends Controller
     {
         $request->validate([
             'Judul' => 'required',
-            'Sampul' => 'required|url', // Require URL instead of file
+            'Sampul' => 'required|url',
             'Author' => 'required',
             'Tahun' => 'required|integer',
             'Kategori' => 'required',
             'Stok' => 'required|integer',
-            'Dipinjam' => 'nullable|integer', // Optional field
-            'Akses' => 'required|in:Dapat dipinjam,Baca di tempat', // Validate Akses
-            'Status' => 'required|in:Tersedia,Reservasi,Dipinjam', // Validate Status
-            'Ketersediaan' => 'required|in:Tersedia,Tidak Tersedia', // Validate Ketersediaan
+            'Dipinjam' => 'nullable|integer',
+            'Akses' => 'required|in:Dapat dipinjam,Baca di tempat',
+            'Status' => 'required|in:Tersedia,Reservasi,Dipinjam',
+            'Ketersediaan' => 'required|in:Tersedia,Tidak Tersedia',
         ]);
 
         Book::create([
@@ -40,7 +40,7 @@ class ManageBookController extends Controller
             'Tahun' => $request->Tahun,
             'Kategori' => $request->Kategori,
             'Stok' => $request->Stok,
-            'Dipinjam' => $request->Dipinjam ?? 0, // Default to 0 if not provided
+            'Dipinjam' => $request->Dipinjam ?? 0,
             'Akses' => $request->Akses,
             'Status' => $request->Status,
             'Ketersediaan' => $request->Ketersediaan,
@@ -53,12 +53,12 @@ class ManageBookController extends Controller
     public function show($id)
     {
         $book = Book::findOrFail($id);
-        return view('crud.book_view', compact('book')); // Change to 'book_view'
+        return view('crud.book_view', compact('book'));
     }
 
-    public function edit($id) // or $adm_buku if you changed the parameter name
+    public function edit($id)
     {
-        $book = Book::findOrFail($id); // This should match the parameter you're passing
+        $book = Book::findOrFail($id);
         return view('crud.book_edit', compact('book'));
     }
 
@@ -66,15 +66,15 @@ class ManageBookController extends Controller
     {
         $request->validate([
             'Judul' => 'required',
-            'Sampul' => 'url', // Require URL instead of file
+            'Sampul' => 'url',
             'Author' => 'required',
             'Tahun' => 'required|integer',
             'Kategori' => 'required',
             'Stok' => 'required|integer',
-            'Dipinjam' => 'nullable|integer', // Optional field
-            'Akses' => 'required|in:Dapat dipinjam,Baca di tempat', // Validate Akses
-            'Status' => 'required|in:Tersedia,Reservasi,Dipinjam', // Validate Status
-            'Ketersediaan' => 'required|in:Tersedia,Tidak Tersedia', // Validate Ketersediaan
+            'Dipinjam' => 'nullable|integer',
+            'Akses' => 'required|in:Dapat dipinjam,Baca di tempat',
+            'Status' => 'required|in:Tersedia,Reservasi,Dipinjam',
+            'Ketersediaan' => 'required|in:Tersedia,Tidak Tersedia',
         ]);
 
         $book = Book::findOrFail($id);
@@ -89,7 +89,7 @@ class ManageBookController extends Controller
             'Tahun' => $request->Tahun,
             'Kategori' => $request->Kategori,
             'Stok' => $request->Stok,
-            'Dipinjam' => $request->Dipinjam ?? 0, // Default to 0 if not provided
+            'Dipinjam' => $request->Dipinjam ?? 0,
             'Akses' => $request->Akses,
             'Status' => $request->Status,
             'Ketersediaan' => $request->Ketersediaan,

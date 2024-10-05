@@ -10,7 +10,7 @@ class ManagePeminjamanController extends Controller
     public function index()
     {
         $peminjamans = Transaksi::where('Tipe_Transaksi', 'Peminjaman')->with(['user', 'buku'])->get();
-        return view('peminjaman.index', compact('peminjamans'));
+        return view('adm.layanan_peminjaman', compact('peminjamans'));
     }
 
     public function create()
@@ -28,7 +28,7 @@ class ManagePeminjamanController extends Controller
 
         Transaksi::create(array_merge($request->all(), ['Tipe_Transaksi' => 'Peminjaman']));
 
-        return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil ditambahkan.');
+        return redirect()->route('adm.layanan_peminjaman')->with('success', 'Peminjaman berhasil ditambahkan.');
     }
 
     public function show($id)
@@ -54,7 +54,7 @@ class ManagePeminjamanController extends Controller
         $peminjaman = Transaksi::findOrFail($id);
         $peminjaman->update(array_merge($request->all(), ['Tipe_Transaksi' => 'Peminjaman']));
 
-        return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil diperbarui.');
+        return redirect()->route('adm.layanan_peminjaman')->with('success', 'Peminjaman berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -62,6 +62,6 @@ class ManagePeminjamanController extends Controller
         $peminjaman = Transaksi::findOrFail($id);
         $peminjaman->delete();
 
-        return redirect()->route('peminjaman.index')->with('success', 'Peminjaman berhasil dihapus.');
+        return redirect()->route('adm.layanan_peminjaman')->with('success', 'Peminjaman berhasil dihapus.');
     }
 }

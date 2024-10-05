@@ -11,7 +11,7 @@ class ManageMahasiswaController extends Controller
     {
         // Mengambil semua data mahasiswa
         $mahasiswas = User::paginate(10); // Menggunakan pagination
-        return view('admin.data_mahasiswa', compact('mahasiswas'));
+        return view('adm.data_mahasiswa', compact('mahasiswas'));
     }
 
     public function create()

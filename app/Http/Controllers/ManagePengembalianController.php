@@ -10,7 +10,7 @@ class ManagePengembalianController extends Controller
     public function index()
     {
         $pengembalians = Transaksi::where('Tipe_Transaksi', 'Pengembalian')->with(['user', 'buku'])->get();
-        return view('pengembalian.index', compact('pengembalians'));
+        return view('adm.layanan_pengembalian', compact('pengembalians'));
     }
 
     public function create()
@@ -28,7 +28,7 @@ class ManagePengembalianController extends Controller
 
         Transaksi::create(array_merge($request->all(), ['Tipe_Transaksi' => 'Pengembalian']));
 
-        return redirect()->route('pengembalian.index')->with('success', 'Pengembalian berhasil ditambahkan.');
+        return redirect()->route('adm.layanan_pengembalian')->with('success', 'Pengembalian berhasil ditambahkan.');
     }
 
     public function show($id)
@@ -54,7 +54,7 @@ class ManagePengembalianController extends Controller
         $pengembalian = Transaksi::findOrFail($id);
         $pengembalian->update(array_merge($request->all(), ['Tipe_Transaksi' => 'Pengembalian']));
 
-        return redirect()->route('pengembalian.index')->with('success', 'Pengembalian berhasil diperbarui.');
+        return redirect()->route('adm.layanan_pengembalian')->with('success', 'Pengembalian berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -62,6 +62,6 @@ class ManagePengembalianController extends Controller
         $pengembalian = Transaksi::findOrFail($id);
         $pengembalian->delete();
 
-        return redirect()->route('pengembalian.index')->with('success', 'Pengembalian berhasil dihapus.');
+        return redirect()->route('adm.layanan_pengembalian')->with('success', 'Pengembalian berhasil dihapus.');
     }
 }
