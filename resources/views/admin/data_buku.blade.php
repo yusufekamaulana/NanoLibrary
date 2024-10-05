@@ -40,6 +40,61 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="assets/css/demo.css" />
+    
+    <!--kebutuhan table-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+            transition: 0.2s;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.9em;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, .05);
+        }
+
+        .img-thumbnail {
+            border-radius: 10%;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .img-thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        th {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .table thead {
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+
+        .table-responsive {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 200%;  /* Mengubah lebar container menjadi 200% */
+            max-width: none;  /* Menghapus batasan lebar maksimum */
+            margin: 0 auto;  /* Membuat container tetap di tengah */
+        }
+    </style>
+
   </head>
   <body>
     <div class="wrapper">
@@ -465,78 +520,79 @@
         </div>
 
         <div class="container">
-            <div class="page-inner">
+          <div class="page-inner">
               <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
-                <div>
-                  <h3 class="fw-bold mb-3">Data Buku</h3>
-                </div>
-                <div class="ms-md-auto py-2 py-md-0">
-                  <a href="#" class="btn btn-label-info btn-round me-2">Atur</a>
-                  <a href="#" class="btn btn-primary btn-round">Tambah Buku</a>
-                </div>
+                  <div>
+                      <h3 class="fw-bold mb-3">Data Buku</h3>
+                  </div>
+                  <div class="ms-md-auto py-2 py-md-0">
+                      <a href="#" class="btn btn-label-info btn-round me-2">Atur</a>
+                      <a href="{{ route('adm-buku.create') }}" class="btn btn-primary btn-round">Tambah Buku</a>
+                  </div>
               </div>
               
               <!-- Table Section Start -->
               <div class="container-fluid py-5">
-                <div class="container">
-                  <h2 class="mb-4 text-center">Data Buku</h2>
-                  <div class="table-responsive">
-                    <table class="table table-bordered">
-                      <thead class="bg-light">
-                        <tr>
-                          <th>No. Peminjaman</th>
-                          <th>Sampul</th>
-                          <th>Judul</th>
-                          <th>Author</th>
-                          <th>Tahun</th>
-                          <th>Kategori</th>
-                          <th>Stok</th>
-                          <th>Dipinjam</th>
-                          <th>Aksi</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Ini Gambar</td>
-                            <td>Attack on Titan Vol. 1</td>
-                            <td>Hajime Isayama</td>
-                            <td>2013</td>
-                            <td>Fiksi</td>
-                            <td>10</td>
-                            <td>2</td>
-                            <td>Tombol View, Edit, Delete</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Ini Gambar</td>
-                            <td>Attack on Titan Vol. 2</td>
-                            <td>Hajime Isayama</td>
-                            <td>2015</td>
-                            <td>Fiksi</td>
-                            <td>7</td>
-                            <td>3</td>
-                            <td>Tombol View, Edit, Delete</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Ini Gambar</td>
-                            <td>Attack on Titan Vol. 3</td>
-                            <td>Hajime Isayama</td>
-                            <td>2017</td>
-                            <td>Fiksi</td>
-                            <td>6</td>
-                            <td>1</td>
-                            <td>Tombol View, Edit, Delete</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="container">
+                      <div class="table-responsive bg-white p-4 rounded shadow-sm">
+                          <h2 class="mb-4 text-center">Data Buku</h2>
+                          <table id="dataBukuTable" class="table table-hover table-striped align-middle text-center">
+                              <thead class="bg-primary text-white">
+                                  <tr>
+                                      <th>No. Peminjaman</th>
+                                      <th>Sampul</th>
+                                      <th>Judul</th>
+                                      <th>Author</th>
+                                      <th>Tahun</th>
+                                      <th>Kategori</th>
+                                      <th>Stok</th>
+                                      <th>Dipinjam</th>
+                                      <th>Aksi</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  @foreach($books as $book)
+                                  <tr>
+                                      <td>{{ $loop->iteration }}</td>
+                                      <td><img src="{{ asset($book->Sampul) }}" alt="Cover {{ $book->Judul }}" class="img-thumbnail" style="width: 80px; height: auto;"></td>
+                                      <td>{{ $book->Judul }}</td>
+                                      <td>{{ $book->Author }}</td>
+                                      <td>{{ $book->Tahun }}</td>
+                                      <td>{{ $book->Kategori }}</td>
+                                      <td>{{ $book->Stok }}</td>
+                                      <td>{{ $book->Dipinjam }}</td>
+                                      <td>
+                                        <div class="d-flex justify-content-center">
+                                          <!-- View Button -->
+                                          <a href="{{ route('adm-buku.show', $book->ID_Buku) }}" class="btn btn-outline-primary btn-sm me-2" title="View">
+                                              <i class="fas fa-eye"></i>
+                                          </a>
+                                      
+                                          <!-- Edit Button -->
+                                          <a href="{{ route('adm-buku.edit', $book->ID_Buku) }}" class="btn btn-outline-warning btn-sm me-2" title="Edit">
+                                              <i class="fas fa-edit"></i>
+                                          </a>
+                                      
+                                          <!-- Delete Button -->
+                                          <form action="{{ route('adm-buku.destroy', $book->ID_Buku) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus buku ini?');" class="d-inline">
+                                              @csrf
+                                              @method('DELETE')
+                                              <button type="submit" class="btn btn-outline-danger btn-sm" title="Delete">
+                                                  <i class="fas fa-trash-alt"></i>
+                                              </button>
+                                          </form>
+                                      </div>
+                                      </td>
+                                  </tr>
+                                  @endforeach
+                              </tbody>
+                          </table>
+                      </div>
                   </div>
-                </div>
               </div>
-            </div>
           </div>
-
+        </div>
+    
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
             <nav class="pull-left">
@@ -820,6 +876,27 @@
         lineColor: "#ffa534",
         fillColor: "rgba(255, 165, 52, .14)",
       });
+    </script>
+
+    <!-- Table -->
+      <script>
+        $(document).ready(function () {
+            $('#dataBukuTable').DataTable({
+                "pageLength": 5, // Jumlah data default yang ditampilkan
+                "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ], // Opsi jumlah data
+                "language": {
+                    "lengthMenu": "Tampilkan _MENU_ data",
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    "search": "Cari:",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Berikutnya",
+                        "previous": "Sebelumnya"
+                    }
+                }
+            });
+        });
     </script>
   </body>
 </html>

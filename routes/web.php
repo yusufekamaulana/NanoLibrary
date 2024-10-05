@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ManageBookController;
+use App\Http\Controllers\ManageMahasiswaController;
 
 Route::get('/', function () {
     return view('index');
@@ -95,5 +97,6 @@ Route::get('/logout', function () {
     return view('users.login');
 });
 
-
+Route::resource('adm-buku', ManageBookController::class);
+Route::resource('adm-mahasiswa', ManageMahasiswaController::class);
 

@@ -40,6 +40,63 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="assets/css/demo.css" />
+
+    <!--kebutuhan table-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.9em;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        th {
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .table thead {
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+
+        .table-responsive {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            overflow-x: auto; /* Ensures responsiveness */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .table-responsive {
+                padding: 1rem;
+            }
+
+            .btn-sm {
+                padding: 4px 8px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+
   </head>
   <body>
     <div class="wrapper">
@@ -478,48 +535,63 @@
               
               <!-- Table Section Start -->
               <div class="container-fluid py-5">
-                <div class="container">
-                  <h2 class="mb-4 text-center">Data Kunjungan</h2>
-                  <div class="table-responsive">
-                    <table class="table table-bordered">
-                      <thead class="bg-light">
-                        <tr>
-                          <th>No</th>
-                          <th>NIM</th>
-                          <th>Nama</th>
-                          <th>Tgl. Kunjungan</th>
-                          <th>Aksi</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>164221062</td>
-                            <td>Arkan Syafiq At'taqy</td>
-                            <td>01-09-2024</td>
-                            <td>Tombol View, Delete</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>163221062</td>
-                            <td>Franky</td>
-                            <td>01-09-2024</td>
-                            <td>Tombol View, Delete</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>162112333031</td>
-                            <td>Brook</td>
-                            <td>01-09-2024</td>
-                            <td>Tombol View, Delete</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div class="container">
+                      <div class="table-responsive bg-white p-4 rounded shadow-sm">
+                          <h2 class="mb-4 text-center">Data Kunjungan</h2>
+                          <table id="dataKunjunganTable" class="table table-hover table-striped align-middle text-center">
+                              <thead class="bg-primary text-white">
+                                  <tr>
+                                      <th>No</th>
+                                      <th>NIM</th>
+                                      <th>Nama</th>
+                                      <th>Tgl. Kunjungan</th>
+                                      <th>Aksi</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>1</td>
+                                      <td>164221062</td>
+                                      <td>Arkan Syafiq At'taqy</td>
+                                      <td>01-09-2024</td>
+                                      <td>
+                                          <div class="d-flex justify-content-center">
+                                              <a href="#" class="btn btn-outline-primary btn-sm me-2" title="View"><i class="fas fa-eye"></i></a>
+                                              <a href="#" class="btn btn-outline-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                          </div>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>2</td>
+                                      <td>163221062</td>
+                                      <td>Franky</td>
+                                      <td>01-09-2024</td>
+                                      <td>
+                                          <div class="d-flex justify-content-center">
+                                              <a href="#" class="btn btn-outline-primary btn-sm me-2" title="View"><i class="fas fa-eye"></i></a>
+                                              <a href="#" class="btn btn-outline-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                          </div>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>3</td>
+                                      <td>162112333031</td>
+                                      <td>Brook</td>
+                                      <td>01-09-2024</td>
+                                      <td>
+                                          <div class="d-flex justify-content-center">
+                                              <a href="#" class="btn btn-outline-primary btn-sm me-2" title="View"><i class="fas fa-eye"></i></a>
+                                              <a href="#" class="btn btn-outline-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                                          </div>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
                   </div>
-                </div>
               </div>
             </div>
-          </div>
+        </div> 
 
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
@@ -804,6 +876,27 @@
         lineColor: "#ffa534",
         fillColor: "rgba(255, 165, 52, .14)",
       });
+    </script>
+
+    <!-- Fitur Table -->
+    <script>
+        $(document).ready(function () {
+            $('#dataKunjunganTable').DataTable({
+                "pageLength": 5, // Jumlah data default yang ditampilkan
+                "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ], // Opsi jumlah data
+                "language": {
+                    "lengthMenu": "Tampilkan _MENU_ data",
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    "search": "Cari:",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Berikutnya",
+                        "previous": "Sebelumnya"
+                    }
+                }
+            });
+        });
     </script>
   </body>
 </html>
