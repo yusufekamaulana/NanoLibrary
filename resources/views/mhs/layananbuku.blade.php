@@ -46,166 +46,22 @@
                 <div class="row g-4">
                     <div class="col-lg-12">
                         <div class="row g-2 justify-content-left">
+                            @foreach($books as $book)
                             <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
+                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku/{{ $book->ID_Buku }}'">
                                     <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                                        <img src="{{ asset($book->Sampul) }}" class="img-fluid w-100 rounded-top" alt="">
                                     </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{ $book->Kategori }}</div>
                                     <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
+                                        <h5 class="text-wrapped text-center">{{ $book->Judul }}</h5>
+                                        <span class="text-wrapped text-center">{{ $book->Author }}</span>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/buku1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4 col-lg-2 col-xl-2">
-                                <div class="rounded position-relative fruite-item h-100 clickable-box" onclick="window.location.href='/mhs/detailbuku'">
-                                    <div class="book-img">
-                                        <img src="{{asset('assets1/img/hero-img.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                                    </div>
-                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Manga</div>
-                                    <div class="p-2 border border-secondary border-top-0 rounded-bottom d-flex flex-column">
-                                        <h5 class="text-wrapped text-center">Juijutsu Kaisen</h5>
-                                        <span class="text-wrapped text-center">Gege Akutami</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="pagination d-flex justify-content-center mt-5">
-                                    <a href="#" class="rounded">&laquo;</a>
-                                    <a href="#" class="active rounded">1</a>
-                                    <a href="#" class="rounded">2</a>
-                                    <a href="#" class="rounded">3</a>
-                                    <a href="#" class="rounded">4</a>
-                                    <a href="#" class="rounded">5</a>
-                                    <a href="#" class="rounded">6</a>
-                                    <a href="#" class="rounded">&raquo;</a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+
                     </div>
 
                 </div>

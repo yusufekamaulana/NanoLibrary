@@ -11,8 +11,9 @@ class CreatePeminjamanTable extends Migration
         Schema::create('peminjaman', function (Blueprint $table) {
             $table->increments('ID_Peminjaman');
             $table->unsignedInteger('User_ID_User')->nullable();
-            $table->unsignedInteger('Buku_ID_Buku')->nullable();
+            $table->unsignedInteger('Buku_ID_Buku')->nullable(); // Menggunakan 'Buku_ID_Buku'
             $table->date('Tanggal_Peminjaman')->nullable();
+            $table->date('Tenggat_Pengembalian')->nullable(); // Mengganti nama kolom
 
             $table->foreign('User_ID_User')
                   ->references('ID_User')
@@ -21,7 +22,7 @@ class CreatePeminjamanTable extends Migration
 
             $table->foreign('Buku_ID_Buku')
                   ->references('ID_Buku')
-                  ->on('buku')
+                  ->on('buku') // Menggunakan tabel 'buku'
                   ->onDelete('set null');
         });
     }

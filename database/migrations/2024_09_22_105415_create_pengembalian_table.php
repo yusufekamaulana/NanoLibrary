@@ -11,8 +11,10 @@ class CreatePengembalianTable extends Migration
         Schema::create('pengembalian', function (Blueprint $table) {
             $table->increments('ID_Pengembalian');
             $table->unsignedInteger('User_ID_User')->nullable();
-            $table->unsignedInteger('Buku_ID_Buku')->nullable();
-            $table->date('Tanggal_Pengembalian')->nullable();
+            $table->unsignedInteger('Buku_ID_Buku')->nullable(); // Menggunakan 'Buku_ID_Buku'
+            $table->date('Tanggal_Peminjaman')->nullable();
+            $table->date('Tenggat_Pengembalian')->nullable();
+            $table->date('Tanggal_Pengembalian')->nullable(); // Mengganti nama kolom
 
             $table->foreign('User_ID_User')
                   ->references('ID_User')
@@ -21,7 +23,7 @@ class CreatePengembalianTable extends Migration
 
             $table->foreign('Buku_ID_Buku')
                   ->references('ID_Buku')
-                  ->on('buku')
+                  ->on('buku') // Menggunakan tabel 'buku'
                   ->onDelete('set null');
         });
     }
@@ -31,4 +33,3 @@ class CreatePengembalianTable extends Migration
         Schema::dropIfExists('pengembalian');
     }
 }
-

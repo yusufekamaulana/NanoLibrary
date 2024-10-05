@@ -11,15 +11,20 @@ class CreateBukuTable extends Migration
         Schema::create('buku', function (Blueprint $table) {
             $table->increments('ID_Buku');
             $table->string('Judul', 255);
-            $table->string('Sampul', 255);
             $table->string('Author', 100)->nullable();
+            $table->string('Sampul', 255);
+            $table->string('Deskripsi', 999);
+            $table->string('Halaman', 255);
+            $table->string('Penerbit', 255)->nullable();
             $table->integer('Tahun')->nullable();
+            $table->integer('Berat')->nullable();
+            $table->integer('ISBN')->nullable();
+            $table->integer('Lebar')->nullable();
+            $table->integer('Panjang')->nullable();
+            $table->string('Bahasa', 255);
             $table->string('Kategori', 255);
-            $table->integer('Stok')->default(0); // Default to 0
-            $table->integer('Dipinjam')->default(0); // Default to 0
-            $table->enum('Status', ['Tersedia', 'Dipesan', 'Dipinjam'])->default('Tersedia'); // Default to 'Tersedia'
-            $table->enum('Akses', ['Dapat dipinjam', 'Baca di tempat'])->default('Dapat dipinjam'); // Default to 'Dapat dipinjam'
-            $table->enum('Ketersediaan', ['Tersedia', 'Tidak Tersedia'])->default('Tersedia'); // Default to 'Tersedia'
+            $table->integer('Stok')->default(0);
+            $table->enum('Akses', ['Dapat dipinjam', 'Baca di tempat'])->default('Dapat dipinjam');
             $table->timestamps();
         });
     }

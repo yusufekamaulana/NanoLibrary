@@ -7,6 +7,9 @@ use App\Http\Controllers\ManagePengembalianController;
 use App\Http\Controllers\ManageMahasiswaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\PemesananController;
+
 
 Route::get('login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('login', [UserController::class, 'login']);
@@ -31,13 +34,9 @@ Route::prefix('mhs')->group(function () {
 
     Route::get('/biodata', [MahasiswaController::class, 'showProfile'])->middleware('auth');
 
-    Route::get('detailbuku', function () {
-        return view('mhs.detailbuku');
-    })->name('mhs.detailbuku');
+    Route::get('layananbuku', [BookController::class, 'index']);
 
-    Route::get('layananbuku', function () {
-        return view('mhs.layananbuku');
-    })->name('mhs.layananbuku');
+    Route::get('/detailbuku/{id}', [BookController::class, 'show']);
 
     Route::get('riwayatpeminjaman', function () {
         return view('mhs.riwayatpeminjaman');
@@ -48,6 +47,7 @@ Route::prefix('mhs')->group(function () {
     })->name('mhs.riwayatpengembalian')->middleware('auth'); // Middleware untuk memastikan pengguna login
 });
 
+Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
 
 
 Route::group([], function () {

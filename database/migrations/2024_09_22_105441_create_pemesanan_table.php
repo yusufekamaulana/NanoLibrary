@@ -4,20 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHistoryTable extends Migration
+class CreatePemesananTable extends Migration
 {
     public function up()
     {
-        Schema::create('history', function (Blueprint $table) {
-            $table->increments('ID_History');
+        Schema::create('pemesanan', function (Blueprint $table) {
+            $table->string('ID_Pemesanan', 8)->primary(); // Ubah kolom ID_Pemesanan menjadi string
             $table->unsignedInteger('User_ID_User')->nullable();
             $table->unsignedInteger('Buku_ID_Buku')->nullable();
-            $table->integer('Total_Dipinjam')->nullable();
-            $table->integer('Total_Dikembalikan')->nullable();
-            $table->date('Tanggal_Update')->nullable();
-            $table->date('Tanggal_Peminjaman')->nullable();
-            $table->date('Tanggal_Pengembalian')->nullable();
-            $table->date('Tanggal_Reservasi')->nullable();
+            $table->date('Tanggal_Pemesanan')->nullable();
 
             $table->foreign('User_ID_User')
                   ->references('ID_User')
@@ -33,7 +28,6 @@ class CreateHistoryTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('history');
+        Schema::dropIfExists('pemesanan');
     }
 }
-

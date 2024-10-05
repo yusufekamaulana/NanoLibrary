@@ -6,34 +6,34 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-12">
-                <h1 class="mb-2">Juijutsu Kaisen Vol. 5</h1>
-                <h4 class="text-secondary mb-3">Gege Akutami</h4>
+                <h1 class="mb-2">{{ $book->Judul }}</h1>
+                <h4 class="text-secondary mb-3">{{ $book->Author }}</h4>
             </div>
         </div>
         <div class="row g-5">
             <div class="col-lg-5">
-                <img class="img-fluid align-items-center" src="{{asset('assets1/img/buku1.jpg')}}" alt="Book Image" width="100%">
+                <img class="img-fluid align-items-center" src="{{ asset($book->Sampul) }}" alt="Book Image" width="100%">
             </div>
             <div class="col-lg-7">
                 <h4 class="mb-3">Deskripsi Buku</h4>
-                <p class="mb-4" style="text-align: justify;">Juijutsu Kaisen Vol. 5 melanjutkan petualangan Yuji Itadori bersama teman-temannya dalam menghadapi kutukan yang mengancam dunia. Volume ini dipenuhi dengan aksi intens dan perkembangan karakter yang menarik, membuatnya menjadi salah satu seri manga yang paling digemari saat ini.</p>
+                <p class="mb-4" style="text-align: justify;">{{ $book->Deskripsi }}</p>
 
                 <h4 class="mb-3">Detail Buku</h4>
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <ul class="list-unstyled">
-                            <li><strong>Jumlah Halaman</strong><br>368 halaman</li>
-                            <li><strong>Penerbit</strong><br>Gramedia Widiasarana Indonesia</li>
-                            <li><strong>Tanggal Terbit</strong><br>23 Mar 2020</li>
-                            <li><strong>Berat</strong><br>0.25 kg</li>
+                            <li><strong>Jumlah Halaman</strong><br>{{ $book->Halaman }} halaman</li>
+                            <li><strong>Penerbit</strong><br>{{ $book->Penerbit }}</li>
+                            <li><strong>Tanggal Terbit</strong><br>{{ $book->Tahun }}</li>
+                            <li><strong>Berat</strong><br>{{ $book->Berat }} kg</li>
                         </ul>
                     </div>
                     <div class="col-md-6">
                         <ul class="list-unstyled">
-                            <li><strong>ISBN</strong><br>9786020523316</li>
-                            <li><strong>Lebar</strong><br>13.5 cm</li>
-                            <li><strong>Panjang</strong><br>20.0 cm</li>
-                            <li><strong>Bahasa</strong><br>Indonesia</li>
+                            <li><strong>ISBN</strong><br>{{ $book->ISBN }}</li>
+                            <li><strong>Lebar</strong><br>{{ $book->Lebar }} cm</li>
+                            <li><strong>Panjang</strong><br>{{ $book->Panjang }} cm</li>
+                            <li><strong>Bahasa</strong><br>{{ $book->Bahasa }}</li>
                         </ul>
                     </div>
                 </div>
@@ -59,15 +59,15 @@
                         <tbody>
                             <tr class="border-b">
                                 <td class="py-3 px-5">Tersedia</td>
-                                <td class="py-3 px-5">10</td>
+                                <td class="py-3 px-5">{{ $book->Stok }}</td>
                             </tr>
                             <tr class="border-b">
                                 <td class="py-3 px-5">Reservasi</td>
-                                <td class="py-3 px-5">1</td>
+                                <td class="py-3 px-5">1</td> <!-- Ganti dengan data yang sesuai -->
                             </tr>
                             <tr>
                                 <td class="py-3 px-5">Dipinjam</td>
-                                <td class="py-3 px-5">2</td>
+                                <td class="py-3 px-5">2</td> <!-- Ganti dengan data yang sesuai -->
                             </tr>
                         </tbody>
                     </table>
@@ -117,54 +117,45 @@
             </div>
         </div>
     </div>
-</div>
+    <!-- Modal Konfirmasi Peminjaman -->
+    <div class="modal fade" id="borrowModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-m"> <!-- Mengubah ukuran modal menjadi lebih kecil -->
+            <div class="modal-content" style="background: rgba(20, 24, 62, 0.7);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn btn-square bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <h3 class="flex items-center justify-center modal-title text-white">Konfirmasi</h3>
+                <div class="modal-body p-4"> <!-- Memberikan padding yang lebih kecil -->
+                    <form method="POST" action="{{ route('pemesanan.store') }}">
+                        @csrf
+                        <input type="hidden" name="Buku_ID_Buku" value="{{ $book->ID_Buku }}">
 
-<!-- Full Screen Borrowing Modal Start -->
-<div class="modal fade" id="borrowModal" tabindex="-1">
-    <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content" style="background: rgba(20, 24, 62, 0.7);">
-            <div class="modal-header border-0">
-                <h3 class="modal-title text-white">Pilih Buku untuk Dipinjam</h3>
-                <button type="button" class="btn btn-square bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full bg-white rounded-lg shadow-md">
-                        <thead class="bg-gray-200 rounded-t-lg">
-                            <tr>
-                                <th class="py-3 px-5 text-left">Nomor Barcode</th>
-                                <th class="py-3 px-5 text-left">Nama Buku</th>
-                                <th class="py-3 px-5 text-left">Akses</th>
-                                <th class="py-3 px-5 text-left">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Example of a book entry. Replace this with dynamic data -->
-                            <tr class="border-b">
-                                <td class="py-3 px-5">1234567890</td>
-                                <td class="py-3 px-5">Juijutsu Kaisen Vol. 5</td>
-                                <td class="py-3 px-5">Tersedia</td>
-                                <td class="py-3 px-5">
-                                    <button class="btn btn-primary" onclick="borrowBook(1)">Pinjam</button>
-                                </td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="py-3 px-5">0987654321</td>
-                                <td class="py-3 px-5">Another Book Title</td>
-                                <td class="py-3 px-5">Tersedia</td>
-                                <td class="py-3 px-5">
-                                    <button class="btn btn-primary" onclick="borrowBook(2)">Pinjam</button>
-                                </td>
-                            </tr>
-                            <!-- Add more entries as needed -->
-                        </tbody>
-                    </table>
+                        <!-- Nama Buku -->
+                        <div class="mb-3">
+                            <label class="form-label text-white small">Nama Buku</label> <!-- Gunakan ukuran teks lebih kecil -->
+                            <input type="text" class="form-control form-control-sm" value="{{ $book->Judul }}" readonly>
+                        </div>
+
+                        <!-- Pengarang -->
+                        <div class="mb-3">
+                            <label class="form-label text-white small">Pengarang</label>
+                            <input type="text" class="form-control form-control-sm" value="{{ $book->Author }}" readonly>
+                        </div>
+
+                        <!-- Lama Peminjaman -->
+                        <div class="mb-3">
+                            <label class="form-label text-white small">Lama Peminjaman (hari)</label>
+                            <input type="text" class="form-control form-control-sm" value="{{'7 Hari'}}" readonly>
+                        </div>
+
+                        <!-- Tombol Konfirmasi -->
+                        <button type="submit" class="btn w-100 py-2 mb-3" style="background-color: #1E90FF; color: white;">Konfirmasi Peminjaman</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Modal End -->
 
 <script>
     function toggleModal(modalId) {
@@ -172,5 +163,4 @@
         modal.classList.toggle('hidden');
     }
 </script>
-
 @endsection
