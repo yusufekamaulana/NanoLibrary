@@ -12,6 +12,11 @@ class MahasiswaController extends Controller
 {
     public function show($ID_User)
     {
+        // Periksa apakah pengguna yang sedang login sama dengan ID yang diminta
+        if (Auth::id() !== (int) $ID_User) {
+            return redirect()->route('home')->withErrors(['message' => 'Anda tidak memiliki akses ke biodata ini.']);
+        }
+
         // Ambil data pengguna berdasarkan ID
         $user = User::findOrFail($ID_User);
 

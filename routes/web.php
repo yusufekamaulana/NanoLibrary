@@ -18,6 +18,7 @@ Route::get('/ruangbaca', [RoomController::class, 'index'])->name('reading-room.i
 Route::post('/reading-room/entry', [RoomController::class, 'entry'])->name('reading-room.entry');
 Route::post('/reading-room/exit', [RoomController::class, 'exit'])->name('reading-room.exit');
 
+
 Route::get('login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('login', [UserController::class, 'login']);
 Route::get('register', [UserController::class, 'showRegisterForm'])->name('register');
@@ -28,7 +29,7 @@ Route::get('/', function () {
     return view('mhs.index');
 })->name('home');
 
-Route::prefix('mhs')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('mhs')->group(function () {
 
     Route::get('aboutus', function () {
         return view('mhs.aboutus');
@@ -50,7 +51,7 @@ Route::prefix('mhs')->middleware(['auth', 'admin'])->group(function () {
 
 Route::post('/pemesanan', [PemesananController::class, 'store'])->name('pemesanan.store');
 
-Route::prefix('adm')->middleware(['auth'])->group(function () {
+Route::prefix('adm')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/', function () {
         return view('adm.index');
