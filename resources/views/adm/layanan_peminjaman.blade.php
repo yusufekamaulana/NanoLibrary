@@ -30,65 +30,31 @@
                 <th>Tgl. Peminjaman</th>
                 <th>Tgl. Pengembalian</th>
                 <th>Status</th>
-                <th>Denda</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
+              @foreach($peminjaman as $item)
               <tr>
-                <td>1</td>
-                <td>123</td>
-                <td>164221062</td>
-                <td>Arkan Syafiq At'taqy</td>
-                <td>Attack on Titan Vol. 1</td>
-                <td>13-09-2024</td>
-                <td>16-09-2024</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->ID_Peminjaman }}</td>
+                <td>{{ $item->user->NIM }}</td>
+                <td>{{ $item->user->Nama }}</td>
+                <td>{{ $item->book->Judul }}</td>
+                <td>{{ $item->Tanggal_Peminjaman }}</td>
+                <td>{{ $item->Tenggat_Pengembalian }}</td>
                 <td>Dipinjam</td>
-                <td>Rp. 0</td>
                 <td>
                   <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary btn-sm me-2" title="Return"><i class="fas fa-undo"></i></a>
-                    <a href="#" class="btn btn-outline-warning btn-sm me-2" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-outline-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                    <!-- Tombol Dikembalikan -->
+                    <a href="{{ route('admin.peminjaman.dikembalikan', $item->ID_Peminjaman) }}" class="btn btn-outline-primary btn-sm me-2" title="Dikembalikan">
+                      <i class="fas fa-undo"></i> Dikembalikan
+                    </a>
+
                   </div>
                 </td>
               </tr>
-              <tr>
-                <td>2</td>
-                <td>456</td>
-                <td>163221062</td>
-                <td>Franky</td>
-                <td>Attack on Titan Vol. 2</td>
-                <td>16-09-2024</td>
-                <td>19-09-2024</td>
-                <td>Dipinjam</td>
-                <td>Rp. 0</td>
-                <td>
-                  <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary btn-sm me-2" title="Return"><i class="fas fa-undo"></i></a>
-                    <a href="#" class="btn btn-outline-warning btn-sm me-2" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-outline-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>789</td>
-                <td>162112333031</td>
-                <td>Brook</td>
-                <td>Attack on Titan Vol. 3</td>
-                <td>19-09-2024</td>
-                <td>22-09-2024</td>
-                <td>Dipinjam</td>
-                <td>Rp. 0</td>
-                <td>
-                  <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-outline-primary btn-sm me-2" title="Return"><i class="fas fa-undo"></i></a>
-                    <a href="#" class="btn btn-outline-warning btn-sm me-2" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-outline-danger btn-sm" title="Delete"><i class="fas fa-trash-alt"></i></a>
-                  </div>
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

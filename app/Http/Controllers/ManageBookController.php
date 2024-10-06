@@ -21,30 +21,24 @@ class ManageBookController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Judul' => 'required',
+            'Judul' => 'required|string|max:255',
             'Sampul' => 'required|url',
-            'Author' => 'required',
-            'Tahun' => 'required|integer',
-            'Kategori' => 'required',
-            'Stok' => 'required|integer',
-            'Dipinjam' => 'nullable|integer',
+            'Author' => 'nullable|string|max:255',
+            'Deskripsi' => 'required|string',
+            'Halaman' => 'required|integer|min:1',
+            'Penerbit' => 'nullable|string|max:255',
+            'Tahun' => 'nullable|integer|min:1000|max:' . (date('Y') + 1),
+            'Berat' => 'nullable|integer|min:1',
+            'ISBN' => 'nullable|string|max:20',
+            'Lebar' => 'nullable|numeric|min:0',
+            'Panjang' => 'nullable|numeric|min:0',
+            'Bahasa' => 'required|string|max:50',
+            'Kategori' => 'required|string|max:100',
+            'Stok' => 'required|integer|min:0',
             'Akses' => 'required|in:Dapat dipinjam,Baca di tempat',
-            'Status' => 'required|in:Tersedia,Reservasi,Dipinjam',
-            'Ketersediaan' => 'required|in:Tersedia,Tidak Tersedia',
         ]);
 
-        Book::create([
-            'Judul' => $request->Judul,
-            'Sampul' => $request->Sampul,
-            'Author' => $request->Author,
-            'Tahun' => $request->Tahun,
-            'Kategori' => $request->Kategori,
-            'Stok' => $request->Stok,
-            'Dipinjam' => $request->Dipinjam ?? 0,
-            'Akses' => $request->Akses,
-            'Status' => $request->Status,
-            'Ketersediaan' => $request->Ketersediaan,
-        ]);
+        Book::create($request->all());
 
         return redirect()->route('adm-buku.index')
             ->with('success', 'Buku berhasil ditambahkan.');
@@ -65,35 +59,25 @@ class ManageBookController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'Judul' => 'required',
-            'Sampul' => 'url',
-            'Author' => 'required',
-            'Tahun' => 'required|integer',
-            'Kategori' => 'required',
-            'Stok' => 'required|integer',
-            'Dipinjam' => 'nullable|integer',
+            'Judul' => 'required|string|max:255',
+            'Sampul' => 'required|url',
+            'Author' => 'nullable|string|max:255',
+            'Deskripsi' => 'required|string',
+            'Halaman' => 'required|integer|min:1',
+            'Penerbit' => 'nullable|string|max:255',
+            'Tahun' => 'nullable|integer|min:1000|max:' . (date('Y') + 1),
+            'Berat' => 'nullable|integer|min:1',
+            'ISBN' => 'nullable|string|max:20',
+            'Lebar' => 'nullable|numeric|min:0',
+            'Panjang' => 'nullable|numeric|min:0',
+            'Bahasa' => 'required|string|max:50',
+            'Kategori' => 'required|string|max:100',
+            'Stok' => 'required|integer|min:0',
             'Akses' => 'required|in:Dapat dipinjam,Baca di tempat',
-            'Status' => 'required|in:Tersedia,Reservasi,Dipinjam',
-            'Ketersediaan' => 'required|in:Tersedia,Tidak Tersedia',
         ]);
 
         $book = Book::findOrFail($id);
-
-        if ($request->has('Sampul')) {
-            $book->Sampul = $request->Sampul; // Update with the new URL
-        }
-
-        $book->update([
-            'Judul' => $request->Judul,
-            'Author' => $request->Author,
-            'Tahun' => $request->Tahun,
-            'Kategori' => $request->Kategori,
-            'Stok' => $request->Stok,
-            'Dipinjam' => $request->Dipinjam ?? 0,
-            'Akses' => $request->Akses,
-            'Status' => $request->Status,
-            'Ketersediaan' => $request->Ketersediaan,
-        ]);
+        $book->update($request->all());
 
         return redirect()->route('adm-buku.index')
             ->with('success', 'Buku berhasil diperbarui.');

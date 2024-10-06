@@ -10,6 +10,13 @@ use Carbon\Carbon;
 
 class PemesananController extends Controller
 {
+
+    public function index()
+    {
+        $pemesanan = Pemesanan::with('user', 'book')->get();
+        return view('adm.layanan_pemesanan', compact('pemesanan'));
+    }
+
     public function store(Request $request)
     {
         $pemesanan = new Pemesanan();

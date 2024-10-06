@@ -45,4 +45,22 @@ class Book extends Model
         'Stok' => 0,
         'Akses' => 'Dapat dipinjam'
     ];
+
+    // Menambahkan relasi ke Pemesanan
+    public function pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class, 'Buku_ID_Buku', 'ID_Buku');
+    }
+
+    // Menambahkan relasi ke Peminjaman
+    public function peminjaman()
+    {
+        return $this->hasMany(Peminjaman::class, 'Buku_ID_Buku', 'ID_Buku');
+    }
+
+    // Menambahkan relasi ke Pengembalian
+    public function pengembalian()
+    {
+        return $this->hasMany(Pengembalian::class, 'Buku_ID_Buku', 'ID_Buku');
+    }
 }

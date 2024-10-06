@@ -92,7 +92,7 @@
         <div class="sidebar" data-background-color="dark">
             <div class="sidebar-logo">
                 <div class="logo-header" data-background-color="dark">
-                    <a href="/admin" class="logo">
+                    <a href="/adm" class="logo">
                         <img src="{{ asset('assets1/img/logo.svg') }}" alt="navbar brand" class="navbar-brand" height="20" />
                     </a>
                     <div class="nav-toggle">
@@ -112,7 +112,7 @@
                 <div class="sidebar-content">
                     <ul class="nav nav-secondary">
                         <li class="nav-item">
-                            <a href="/admin">
+                            <a href="/adm">
                                 <i class="fas fa-home"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -131,7 +131,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/adm-mahasiswa">
+                                        <a href="{{ route('adm-mahasiswa.index') }}">
                                             <span class="sub-item">Data Mahasiswa</span>
                                         </a>
                                     </li>
@@ -147,17 +147,17 @@
                             <div class="collapse" id="sidebarLayouts">
                                 <ul class="nav nav-collapse">
                                     <li>
-                                        <a href="/adm-peminjaman">
+                                        <a href="/adm/peminjaman">
                                             <span class="sub-item">Peminjaman</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/adm-pengembalian">
+                                        <a href="/adm/pengembalian">
                                             <span class="sub-item">Pengembalian</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/adm-pemesanan">
+                                        <a href="/adm/pemesanan">
                                             <span class="sub-item">Pemesanan</span>
                                         </a>
                                     </li>
@@ -174,7 +174,7 @@
             <div class="main-header">
                 <div class="main-header-logo">
                     <div class="logo-header" data-background-color="dark">
-                        <a href="/admin" class="logo">
+                        <a href="/adm" class="logo">
                             <img src="{{ asset('assets1/img/logo.svg') }}" alt="navbar brand" class="navbar-brand" height="20" />
                         </a>
                         <div class="nav-toggle">
@@ -219,7 +219,10 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">Logout</a>
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item">Logout</button>
+                                            </form>
                                         </li>
                                     </div>
                                 </ul>
@@ -302,10 +305,13 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#dataPeminjamanTable').DataTable({
                 "pageLength": 5, // Jumlah data default yang ditampilkan
-                "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ], // Opsi jumlah data
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "All"]
+                ], // Opsi jumlah data
                 "language": {
                     "lengthMenu": "Tampilkan _MENU_ data",
                     "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
@@ -321,10 +327,13 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#dataPengembalianTable').DataTable({
                 "pageLength": 5, // Jumlah data default yang ditampilkan
-                "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ], // Opsi jumlah data
+                "lengthMenu": [
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "All"]
+                ], // Opsi jumlah data
                 "language": {
                     "lengthMenu": "Tampilkan _MENU_ data",
                     "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",

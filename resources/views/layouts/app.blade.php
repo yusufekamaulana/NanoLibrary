@@ -77,7 +77,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown"><i class="fa fa-user"></i></a>
                             <div class="dropdown-menu bg-light mt-2">
-                                <a href="/mhs/biodata" class="dropdown-item">Profile</a>
+                                <a href="{{ route('biodata.show', Auth::user()->ID_User) }}" class="dropdown-item">Profile</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button type="submit" class="dropdown-item">Logout</button>

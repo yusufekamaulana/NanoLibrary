@@ -31,3 +31,4 @@ class CreatePemesananTable extends Migration
         Schema::dropIfExists('pemesanan');
     }
 }
+

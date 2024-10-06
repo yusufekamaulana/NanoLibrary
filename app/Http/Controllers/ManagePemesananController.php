@@ -2,77 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaksi;
+use App\Models\Pemesanan;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ManagePemesananController extends Controller
 {
     public function index()
     {
-        // Retrieve all pemesanan transactions
-        $pemesananList = Transaksi::where('Tipe_Transaksi', 'Pemesanan')->with(['user', 'buku'])->get();
-        return view('pemesanan.index', compact('pemesananList'));
+        $pemesanan = Pemesanan::with('user', 'book')->get();
+        return view('adm.layanan_pemesanan', compact('pemesanan'));
     }
 
-    public function create()
+    public function pinjamkan($id)
     {
-        // Load necessary data for creating a pemesanan
-        return view('pemesanan.create');
-    }
+        $pemesanan = Pemesanan::findOrFail($id);
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'User_ID_User' => 'required|exists:user,ID_User',
-            'Buku_ID_Buku' => 'required|exists:buku,ID_Buku',
-            'Tanggal_Pemesanan' => 'required|date',
-        ]);
+        $peminjaman = new Peminjaman();
+        $peminjaman->User_ID_User = $pemesanan->User_ID_User;
+        $peminjaman->Buku_ID_Buku = $pemesanan->Buku_ID_Buku;
+        $peminjaman->Tanggal_Peminjaman = Carbon::now();
+        $peminjaman->Tenggat_Pengembalian = Carbon::now()->addDays(7);
 
-        Transaksi::create(array_merge($request->all(), [
-            'Tipe_Transaksi' => 'Pemesanan',
-            'Status' => 'Dipesan',
-        ]));
+        $peminjaman->save();
 
-        return redirect()->route('pemesanan.index')->with('success', 'Pemesanan berhasil ditambahkan.');
-    }
-
-    public function show($id)
-    {
-        // Show details of a specific pemesanan
-        $pemesanan = Transaksi::with(['user', 'buku'])->findOrFail($id);
-        return view('pemesanan.show', compact('pemesanan'));
-    }
-
-    public function edit($id)
-    {
-        // Get the pemesanan for editing
-        $pemesanan = Transaksi::findOrFail($id);
-        return view('pemesanan.edit', compact('pemesanan'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'User_ID_User' => 'required|exists:user,ID_User',
-            'Buku_ID_Buku' => 'required|exists:buku,ID_Buku',
-            'Tanggal_Pemesanan' => 'required|date',
-        ]);
-
-        $pemesanan = Transaksi::findOrFail($id);
-        $pemesanan->update(array_merge($request->all(), [
-            'Tipe_Transaksi' => 'Pemesanan',
-            'Status' => 'Dipesan',
-        ]));
-
-        return redirect()->route('pemesanan.index')->with('success', 'Pemesanan berhasil diperbarui.');
-    }
-
-    public function destroy($id)
-    {
-        // Delete the specified pemesanan
-        $pemesanan = Transaksi::findOrFail($id);
         $pemesanan->delete();
 
-        return redirect()->route('pemesanan.index')->with('success', 'Pemesanan berhasil dihapus.');
+        return redirect()->route('admin.peminjaman.index')->with('success', 'Buku berhasil dipinjamkan.');
     }
 }

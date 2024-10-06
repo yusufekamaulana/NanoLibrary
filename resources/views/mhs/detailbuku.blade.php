@@ -62,12 +62,12 @@
                                 <td class="py-3 px-5">{{ $book->Stok }}</td>
                             </tr>
                             <tr class="border-b">
-                                <td class="py-3 px-5">Reservasi</td>
-                                <td class="py-3 px-5">1</td> <!-- Ganti dengan data yang sesuai -->
+                                <td class="py-3 px-5">Dipesan</td>
+                                <td class="py-3 px-5">{{ $dipesanCount }}</td>
                             </tr>
                             <tr>
                                 <td class="py-3 px-5">Dipinjam</td>
-                                <td class="py-3 px-5">2</td> <!-- Ganti dengan data yang sesuai -->
+                                <td class="py-3 px-5">{{ $dipinjamCount }}</td>
                             </tr>
                         </tbody>
                     </table>

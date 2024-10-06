@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-4 wow fadeIn text-center" data-wow-delay="0.5s">
-                <img class="img-fluid rounded-circle mx-auto" src="{{ asset('assets1/img/team-1.jpg') }}" alt="Profile Picture">
+                <img class="img-fluid mx-auto" src="{{ $qrCodePath }}" alt="QR Code">
             </div>
             <div class="col-lg-8 wow fadeIn" data-wow-delay="0.5s">
                 <table class="table text-left">
